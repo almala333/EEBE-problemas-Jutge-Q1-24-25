@@ -1,3 +1,4 @@
 # EEBE-problemas-Jutge-Q1-24-25
 Todos los problemas del Jutge con sus soluciones que había disponibles en el primer quadri de 24-25
+
 Este repositorio tiene el objetivo único y exclusivo de ayudar, proveyendo de mis soluciones, a cualquier alumno que esté cursando la materia de informática 1 en la facultad EEBE de la UPC, estos ejercicios no están pensados para entregarlos directamente a Jutge, sino para ser revisados, comprendidos y analizados. Así facilitando la comprensión del alumno en caso de no saber como solucionarlo, o estar buscando diferentes maneras de realizar el mismo problema. por ello no me responsabilizo de cualquier mal uso de estos códigos, incluyendo las posibles consecuencias de copiar directamente uno de estos códigos en Jutge. Os invito a revisar los códigos y al menos cambiar el nombre de las variables y los doctests privados.
