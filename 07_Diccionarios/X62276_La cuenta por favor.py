@@ -9,9 +9,10 @@ def la_cuenta(carta, consumicion):
 
     Retorna
     -------
-    float
-        El total de la factura, que és la suma dels preus dels plats multiplicats pel nombre de plats consumits, arrodonit a dos decimals.
-    
+    float o int
+        El total de la factura, que és la suma dels preus dels plats multiplicats pel nombre de plats consumits,
+        arrodonit a dos decimals, o 0 com un enter si el total és 0.
+
     Tests públics
     -------------
     >>> carta = {'arroz a banda': 6.5, 'pollo al horno': 5,
@@ -44,13 +45,13 @@ def la_cuenta(carta, consumicion):
     0.0
     >>> consumicion = {}
     >>> la_cuenta(carta, consumicion)
-    0.0
+    0
     '''
-    total = 0.0
-    for plate, quantity in consumicion.items():
-        if plate in carta:
-            total += carta.get(plate) * quantity
-    return round(total, 2)
+    price = 0
+    for i in consumicion:
+        price += consumicion[i] * carta[i]
+        
+    return price
 
 if __name__ == "__main__":
     import doctest

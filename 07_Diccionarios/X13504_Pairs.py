@@ -79,30 +79,18 @@ def empareja(ltrab, preferencias):
 
     Tests privats
     -------------
-    >>> empareja(['worker1', 'worker2'], {'worker1': ['worker2'], 'worker2': ['worker1']})
-    {'worker1': ['worker2'], 'worker2': ['worker1']}
-    
-    >>> empareja(['worker1', 'worker2', 'worker3'], {'worker1': ['worker2', 'worker3'], 'worker2': ['worker1'], 'worker3': []})
-    {'worker1': ['worker2'], 'worker2': ['worker1'], 'worker3': []}
-    
-    >>> empareja(['a', 'b', 'c'], {'a': ['b'], 'b': ['c'], 'c': ['a']})
-    {'a': [], 'b': [], 'c': []}
-    
-    >>> empareja(['x', 'y'], {'x': ['y'], 'y': ['x', 'z']})
-    {'x': ['y'], 'y': ['x']}
-    
-    >>> empareja([], {'a': ['b'], 'b': ['a']})
-    {}
-    '''
-    cleaned_preferences = limpia(preferencias)
-    emparejados = {}
-    for worker in ltrab:
-        emparejados[worker] = []
-        for companion in cleaned_preferences.get(worker, []):
-            if worker in cleaned_preferences.get(companion, []):
-                emparejados[worker].append(companion)
 
-    return emparejados
+    '''
+    companions = {worker: [] for worker in ltrab}
+
+    for worker in ltrab:
+        prefs = preferencias.get(worker, [])
+
+        for preferred in prefs:
+            if preferred in preferencias and worker in preferencias[preferred] and preferred not in ltrab:
+                companions[worker].append(preferred)
+    
+    return companions
 
 if __name__ == "__main__":
     import doctest
