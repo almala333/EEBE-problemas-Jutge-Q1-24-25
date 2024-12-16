@@ -34,18 +34,7 @@ def frequencies(d):
             fr[i] += 1
         else:
             fr[i] = 1
-    numeros = []
-    for num in fr:
-        numeros.append(num)
-    for i in range(len(numeros)):
-        for j in range(i + 1, len(numeros)):
-            if numeros[i] > numeros[j]:
-                numeros[i], numeros[j] = numeros[j], numeros[i]
-    ordered_fr = {}
-    for num in numeros:
-        ordered_fr[num] = fr[num]
-
-    return ordered_fr
+    return dict(sorted(fr.items()))
 
 if __name__ == "__main__":
     import doctest
