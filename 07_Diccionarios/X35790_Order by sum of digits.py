@@ -29,15 +29,14 @@ def sum_of_digits_sorted(numbers):
     [5, 5, 5]
     '''
     
-    sum_digit_pairs = []
-    for number in numbers:
-        digit_sum = sum(int(digit) for digit in str(number))
-
-        sum_digit_pairs.append((digit_sum, number))
-    sum_digit_pairs.sort(key=lambda x: (x[0], x[1]))
-    sorted_numbers = [number for _, number in sum_digit_pairs]
     
-    return sorted_numbers
+    def sort_key(x):
+        digit_sum = 0
+        for d in str(x):
+            digit_sum += int(d)
+        return (digit_sum, x)
+
+    return sorted(numbers, key=sort_key)
 
 if __name__ == "__main__":
     import doctest
